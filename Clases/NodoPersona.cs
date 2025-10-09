@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Clases
 {
-    public class Nodo<T>
+    public class NodoPersona<T>
     {
         public T Dato;
-        public Nodo<T> Siguiente;
-        public Nodo(T dato)
+        public NodoPersona<T> Siguiente;
+        public NodoPersona(T dato)
         {
             Dato = dato;
             Siguiente = null;

@@ -10,17 +10,19 @@ namespace Clases
     {
         public int DNI;
         public string Nombre;
-        public Persona(int dni, string nombre)
+        public int Prioridad; // 1 si tiene prioridad y 0 si no tiene
+
+        public Persona() { }
+
+        public Persona(int dNI, string nombre, int prioridad)
         {
-            DNI = dni;
+            DNI = dNI;
             Nombre = nombre;
-        }
-        public Persona()
-        {
+            Prioridad = prioridad;
         }
         public override string ToString()
         {
-            return $"DNI: {DNI} | Nombre: {Nombre}";
+            return $"DNI: {DNI} \nNombres: {Nombre}";
         }
     }
 }

@@ -9,12 +9,12 @@ namespace Clases
 {
     public class ColaSimple<T>
     {
-        public Nodo<T> Frente;
-        public Nodo<T> Final;
+        public NodoPersona<T> Frente;
+        public NodoPersona<T> Final;
 
         public void Encolar(T dato)
         {
-            Nodo<T> nuevoNodo = new Nodo<T>(dato);
+            NodoPersona<T> nuevoNodo = new NodoPersona<T>(dato);
             if (Final == null)
             {
                 Frente = nuevoNodo;
@@ -30,7 +30,7 @@ namespace Clases
         }
         public T Desencolar()
         {
-            Nodo<T> nodoAuxiliar = Frente;  //Auxiliar que guarda el dato que se va a desencolar/eliminar
+            NodoPersona<T> nodoAuxiliar = Frente;  //Auxiliar que guarda el dato que se va a desencolar/eliminar
             // Input Cola 5 4 10
             if (Frente != null)
             {
@@ -48,18 +48,6 @@ namespace Clases
             {
                 Console.WriteLine("No se pudo desencolar, la cola está vacía");
                 return default(T);
-            }
-        }
-        public void MostrarCola()
-        {
-            Nodo<T> nodoAuxiliar = Frente;
-            if (nodoAuxiliar != null)
-            {
-
-            }
-            else
-            {
-                Console.WriteLine("La cola está vacía");
             }
         }
     }
