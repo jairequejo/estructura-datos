@@ -9,12 +9,12 @@ namespace Clases
 {
     public class ColaSimple<T>
     {
-        public NodoPersona<T> Frente;
-        public NodoPersona<T> Final;
+        public NodoCola<T> Frente;
+        public NodoCola<T> Final;
 
         public void Encolar(T dato)
         {
-            NodoPersona<T> nuevoNodo = new NodoPersona<T>(dato);
+            NodoCola<T> nuevoNodo = new NodoCola<T>(dato);
             if (Final == null)
             {
                 Frente = nuevoNodo;
@@ -30,7 +30,7 @@ namespace Clases
         }
         public T Desencolar()
         {
-            NodoPersona<T> nodoAuxiliar = Frente;  //Auxiliar que guarda el dato que se va a desencolar/eliminar
+            NodoCola<T> nodoAuxiliar = Frente;  //Auxiliar que guarda el dato que se va a desencolar/eliminar
             // Input Cola 5 4 10
             if (Frente != null)
             {

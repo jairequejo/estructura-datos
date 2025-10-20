@@ -15,22 +15,35 @@ namespace EjecucionConsola
         {
             ArbolBinario abb = new ArbolBinario();
 
-            int[] valores = { 5, 3, 7, 2, 4, 6, 8, 1 };
+            int[] valores = { 6, 4, 1, 5, 8, 9};
 
             Console.WriteLine("--- INSERCIÓN DE NODOS ---");
+
             foreach (int valor in valores)
             {
-                // La llamada inicial debe usar miArbol.nodoRaiz
-                // ya que el método Insertar recibe la referencia al nodo actual.
                 abb.Insertar(valor);
             }
+
             abb.Dibujar();
 
-            abb.InOrden(abb.nodoRaiz);
-            Console.WriteLine();
+            abb.MostrarInorden();
+
+            abb.MostrarPostorden();
+
+            abb.MostrarPreorden();
+
+
             Console.WriteLine("Ingrese el valor a buscar: ");
             int buscado = int.Parse(Console.ReadLine());
             abb.Buscar(buscado);
+
+            abb.EliminarConDescendencia(buscado);
+            abb.Dibujar();
+
+
+
+
+
 
 
             //abb.BuscarMenor(abb.nodoRaiz);

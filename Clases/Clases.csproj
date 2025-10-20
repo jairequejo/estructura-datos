@@ -43,11 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arbol\ArbolBinario.cs" />
+    <Compile Include="Arbol\ColaParaArbol\ColaABB.cs" />
+    <Compile Include="Arbol\ColaParaArbol\NodoColaABB.cs" />
     <Compile Include="Arbol\NodoArbol.cs" />
     <Compile Include="ColaPersonas\ColaPersona.cs" />
     <Compile Include="ColaPersonas\NodoPersona.cs" />
     <Compile Include="ColaSimple.cs" />
-    <Compile Include="NodoPersona.cs" />
+    <Compile Include="NodoCola.cs" />
     <Compile Include="ColaPersonas\Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

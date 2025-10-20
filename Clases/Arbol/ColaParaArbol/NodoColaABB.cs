@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clases
+namespace Clases.Arbol.ColaParaArbol
 {
-    public class NodoPersona<T>
+    public class NodoColaABB
     {
-        public T Dato;
-        public NodoPersona<T> Siguiente;
-        public NodoPersona(T dato)
+        public NodoArbol Dato;
+        public NodoColaABB Siguiente;
+
+        public NodoColaABB(NodoArbol dato)
         {
             Dato = dato;
             Siguiente = null;
