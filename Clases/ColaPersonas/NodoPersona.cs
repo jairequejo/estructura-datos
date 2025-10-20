@@ -10,5 +10,10 @@ namespace Clases.ColaPersonas
     {
         public Persona dato;
         public NodoPersona sig = null;
+
+        public NodoPersona(Persona dato)
+        {
+            this.dato = dato;
+        }
     }
 }

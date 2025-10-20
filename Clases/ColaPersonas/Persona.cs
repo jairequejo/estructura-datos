@@ -10,15 +10,15 @@ namespace Clases
     {
         public int DNI;
         public string Nombre;
-        public int Prioridad; // 1 si tiene prioridad y 0 si no tiene
+        public bool EsPrioridad;
 
         public Persona() { }
 
-        public Persona(int dNI, string nombre, int prioridad)
+        public Persona(int dNI, string nombre, bool prioridad)
         {
             DNI = dNI;
             Nombre = nombre;
-            Prioridad = prioridad;
+            EsPrioridad = prioridad;
         }
         public override string ToString()
         {

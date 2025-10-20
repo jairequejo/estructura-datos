@@ -10,7 +10,7 @@ namespace Clases.Arbol
     {
         public NodoArbol nodoRaiz = null;
 
-        public void Insertar(ref NodoArbol nodoRaiz, int valor)
+        private void Insertar(ref NodoArbol nodoRaiz, int valor)
         {
             if (nodoRaiz == null)
             {
@@ -19,6 +19,7 @@ namespace Clases.Arbol
                 nodoRaiz = nodoNuevo;
                 Console.WriteLine($"Elemento agregado");
             }
+
             else
             {
                 if (valor < nodoRaiz.dato)
@@ -35,22 +36,138 @@ namespace Clases.Arbol
                 }
             }
         }
-        public void MostrarArbol(NodoArbol raiz, int espacios)
+
+        // Disfraz
+        public void Insertar(int valor)
         {
+            Insertar(ref nodoRaiz, valor);
+        }
+
+        //Dibujar
+        private void Dibujar(NodoArbol raiz, int espacios)
+        {
+            if (raiz != null)
+            {
+                Dibujar(raiz.Derecha, espacios + 1);
+                for (int i = 0; i < espacios; i++)
+                {
+                    Console.Write("   ");
+                }
+                Console.WriteLine(raiz.dato); //ayuda a mostrar la raiz(imprime)
+                Dibujar(raiz.Izquierda, espacios + 1);
+            }
+        }
+
+        public void Dibujar()
+        {
+            Dibujar(nodoRaiz, 0);
+
+        }
+
+        //INORDEN : izquierda - raiz - derecha COMPLETAR
+        public void InOrden(NodoArbol raiz)
+        {
+            // Izquierda-Raiz-Derecha         
             if (raiz == null)
             {
                 return;
             }
             else
             {
-                MostrarArbol(raiz.Derecha, espacios + 1);
-                for (int i = 0; i < espacios; i++)
-                {
-                    Console.Write("   ");
-                }
-                Console.WriteLine(raiz.dato);
-                MostrarArbol(raiz.Izquierda, espacios + 1);
+                InOrden(raiz.Izquierda);//izquierda
+                Console.Write(raiz.dato + "-");//raiz
+                InOrden(raiz.Derecha);//derecha
             }
         }
+
+        //PREORDEN : raiz - izquierda - derecha COMPLETAR
+        public void PreOrden(NodoArbol raiz)
+        {
+            // Raiz-izquierda- Derecha         
+            if (raiz == null)
+            {
+                return;
+            }
+            else
+            {
+                Console.Write(raiz.dato + "-");//raiz
+                PreOrden(raiz.Izquierda);//izquierda              
+                PreOrden(raiz.Derecha);//derecha
+            }
+        }
+        //POSTORDEN : izquierda -derecha - raiz COMPLETAR
+        public void PostOrden(NodoArbol raiz)
+        {
+            // Izquierda - Derecha - Raiz
+            if (raiz == null)
+            {
+                return;
+            }
+            else
+            {
+                PostOrden(raiz.Izquierda); // izquierda
+                PostOrden(raiz.Derecha);   // derecha
+                Console.Write(raiz.dato + "-"); // raiz
+            }
+        }
+
+        //BUSCAR
+        public void Buscar(int buscado)
+        {
+
+            BuscarABB(nodoRaiz, buscado);
+        }
+        private void BuscarABB(NodoArbol raiz, int d)
+        {
+            if (raiz == null)
+            {
+                Console.WriteLine("Dato no encontrado");
+                return;
+            }
+            else
+            {
+                if (d < raiz.dato)
+                {
+                    BuscarABB(raiz.Izquierda, d);
+                }
+                else if (d > raiz.dato)
+                {
+                    BuscarABB(raiz.Derecha, d);
+                }
+                else
+                {
+                    //son iguales
+                    Console.WriteLine("Dato encontrado");
+                }
+            }
+        }
+        public void BuscarMenor(NodoArbol raiz)
+        {
+            if (raiz.Izquierda != null)
+            {
+                BuscarMenor(raiz.Izquierda);
+            }
+            else
+            {
+                Console.WriteLine("El nodo menor es " + raiz.dato);
+                return;
+            }
+        }
+        //completar BUSCARMAYOR
+        public void BuscarMayor(NodoArbol raiz)
+        {
+            if (raiz.Derecha != null)
+            {
+                BuscarMayor(raiz.Derecha);
+            }
+            else
+            {
+                Console.WriteLine("El nodo mayor es" + raiz.dato);
+                return;
+            }
+        }
+
+        //completar ELiminar
+
     }
 }

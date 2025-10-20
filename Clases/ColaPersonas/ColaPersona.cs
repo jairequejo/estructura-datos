@@ -14,24 +14,46 @@ namespace Clases.ColaPersonas
         public void Encolar(Persona p)
         {
             //1. Crear nuevo Nodo
-            NodoPersona nuevo = new NodoPersona();
-            nuevo.dato = p;
+            NodoPersona nodoNuevo = new NodoPersona(p);
 
             //2. encolar
             if (frente == null)
             {
-                frente = nuevo;
-                final = nuevo;
+                frente = nodoNuevo;
+                final = nodoNuevo;
             }
             else
             {
+                // Cola Preferencial
+                if (p.EsPrioridad)
+                {
+                    if (frente.dato.EsPrioridad)
+                    {
+                        // Se compila despues del ultimo preferencial
+                        NodoPersona aux = frente;
+                        while (aux.sig != null && aux.sig.dato.EsPrioridad)
+                        {
+                            aux = aux.sig; 
+                        }
 
+                        // Auxiliar ya es igual al ultimo preferencial
 
-
-                final.sig = nuevo;
-                final = nuevo;
+                        nodoNuevo.sig = aux.sig;
+                        aux.sig = nodoNuevo;
+                    }
+                    else
+                    {
+                        // El nuevo es preferencial y el frente no, se encola al frente
+                        nodoNuevo.sig = frente;
+                        frente = nodoNuevo;
+                    }
+                }
+                else
+                {
+                    final.sig = nodoNuevo;
+                    final = nodoNuevo;
+                }
             }
-
         }
 
         public Persona Desencolar()
