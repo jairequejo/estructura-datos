@@ -49,6 +49,10 @@
     <Compile Include="ColaPersonas\ColaPersona.cs" />
     <Compile Include="ColaPersonas\NodoPersona.cs" />
     <Compile Include="ColaSimple.cs" />
+    <Compile Include="Grafos\Grafo.cs" />
+    <Compile Include="Grafos\ListaEnlazada.cs" />
+    <Compile Include="Grafos\NodoLista.cs" />
+    <Compile Include="Grafos\Vertice.cs" />
     <Compile Include="NodoCola.cs" />
     <Compile Include="ColaPersonas\Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
